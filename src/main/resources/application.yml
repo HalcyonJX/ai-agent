@@ -1,6 +1,12 @@
 spring:
   application:
     name: ai-agent
+  #数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ai
+    username: root
+    password: 123456
 server:
   port: 8123
   servlet:
@@ -22,3 +28,15 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+#关闭下划线转驼峰
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    # 仅在开发环境打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      #逻辑删除
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
